@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3: React</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="personas.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Registro de Personas (React)</h1>
+        </header>
+
+        <main>
+            <div id="root"></div>
+            <a href="index.html" class="volver">&larr; Volver al Inicio</a>
+        </main>
+    </div>
+
+    <script type="text/babel">
+function AppReact() {
+    return (
+        <div>
+            <section className="formulario-seccion">
+                <h2>Cargar Persona (React)</h2>
+                <p>En desarrollo...</p>
+            </section>
+        </div>
+    );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<AppReact />);
+    </script>
+</body>
+</html>
