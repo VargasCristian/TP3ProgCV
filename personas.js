@@ -47,9 +47,25 @@ function actualizarTabla() {
             <td>${persona.altura}</td>
             <td>${persona.peso}</td>
             <td>${persona.imc}</td>
-            <td></td>
+            <td>
+                <button class="btn-eliminar" onclick="eliminarPersona(${persona.id})">Eliminar</button>
+            </td>
         `;
 
         cuerpoTabla.appendChild(fila);
     }
+}
+
+function eliminarPersona(id) {
+    
+    const nuevasPersonas = [];
+    for (let i = 0; i < personas.length; i++) {
+        if (personas[i].id !== id) {
+            nuevasPersonas.push(personas[i]);
+        }
+    }
+
+    personas = nuevasPersonas;
+
+    actualizarTabla();
 }
