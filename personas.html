@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2: Formulario y Tabla de Personas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="personas.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Registro de Personas (Vanilla JS)</h1>
+        </header>
+
+        <main>
+            <section class="formulario-seccion">
+                <h2>Cargar Persona</h2>
+                <form id="formulario-persona">
+                    <div class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    <div class="campo">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" required>
+                    </div>
+                    <div class="campo">
+                        <label for="edad">Edad:</label>
+                        <input type="number" id="edad" min="1" required>
+                    </div>
+                    <div class="campo">
+                        <label for="altura">Altura (en metros, ej: 1.75):</label>
+                        <input type="number" id="altura" step="0.01" min="0.5" required>
+                    </div>
+                    <div class="campo">
+                        <label for="peso">Peso (en kg, ej: 70):</label>
+                        <input type="number" id="peso" step="0.1" min="1" required>
+                    </div>
+                    <button type="submit" class="btn-guardar">Guardar Persona</button>
+                </form>
+            </section>
+
+            <section class="tabla-seccion">
+                <h2>Listado de Personas</h2>
+                <table id="tabla-personas">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Edad</th>
+                            <th>Altura (m)</th>
+                            <th>Peso (kg)</th>
+                            <th>IMC</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla">
+                        
+                    </tbody>
+                </table>
+            </section>
+
+            <a href="index.html" class="volver">&larr; Volver al Inicio</a>
+        </main>
+    </div>
+
+    <script src="personas.js"></script>
+</body>
+</html>
