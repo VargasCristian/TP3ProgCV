@@ -63,3 +63,22 @@ table th {
     color: #495057;
     font-weight: 500;
 }
+
+table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-eliminar {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.btn-eliminar:hover {
+    background-color: #212529;
+}
