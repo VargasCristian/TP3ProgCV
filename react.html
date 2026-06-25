@@ -19,18 +19,129 @@
         </header>
 
         <main>
+            
             <div id="root"></div>
+
             <a href="index.html" class="volver">&larr; Volver al Inicio</a>
         </main>
     </div>
 
     <script type="text/babel">
+const { useState } = React;
+
 function AppReact() {
+    const [personas, setPersonas] = useState([]);
+    const [formData, setFormData] = useState({
+        nombre: '',
+        apellido: '',
+        edad: '',
+        altura: '',
+        peso: ''
+    });
+
+    const manejarCambio = (e) => {
+        const { id, value } = e.target;
+        setFormData({
+            ...formData,
+            [id]: value
+        });
+    };
+
+    const manejarEnvio = (e) => {
+        e.preventDefault();
+        
+        const peso = parseFloat(formData.peso);
+        const altura = parseFloat(formData.altura);
+        const imc = peso / (altura * altura);
+
+        const nuevaPersona = {
+            id: Date.now(),
+            nombre: formData.nombre,
+            apellido: formData.apellido,
+            edad: formData.edad,
+            altura: formData.altura,
+            peso: formData.peso,
+            imc: imc.toFixed(2)
+        };
+
+        setPersonas([...personas, nuevaPersona]);
+
+        setFormData({
+            nombre: '',
+            apellido: '',
+            edad: '',
+            altura: '',
+            peso: ''
+        });
+    };
+
+    const eliminarPersona = (id) => {
+        const nuevasPersonas = personas.filter(persona => persona.id !== id);
+        setPersonas(nuevasPersonas);
+    };
+
     return (
         <div>
             <section className="formulario-seccion">
-                <h2>Cargar Persona (React)</h2>
-                <p>En desarrollo...</p>
+                <h2>Cargar Persona</h2>
+                <form onSubmit={manejarEnvio}>
+                    <div className="campo">
+                        <label htmlFor="nombre">Nombre:</label>
+                        <input type="text" id="nombre" value={formData.nombre} onChange={manejarCambio} required />
+                    </div>
+                    <div className="campo">
+                        <label htmlFor="apellido">Apellido:</label>
+                        <input type="text" id="apellido" value={formData.apellido} onChange={manejarCambio} required />
+                    </div>
+                    <div className="campo">
+                        <label htmlFor="edad">Edad:</label>
+                        <input type="number" id="edad" min="1" value={formData.edad} onChange={manejarCambio} required />
+                    </div>
+                    <div className="campo">
+                        <label htmlFor="altura">Altura (en metros, ej: 1.75):</label>
+                        <input type="number" id="altura" step="0.01" min="0.5" value={formData.altura} onChange={manejarCambio} required />
+                    </div>
+                    <div className="campo">
+                        <label htmlFor="peso">Peso (en kg, ej: 70):</label>
+                        <input type="number" id="peso" step="0.1" min="1" value={formData.peso} onChange={manejarCambio} required />
+                    </div>
+                    <button type="submit" class="btn-guardar">Guardar Persona</button>
+                </form>
+            </section>
+
+            <section className="tabla-seccion">
+                <h2>Listado de Personas</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Edad</th>
+                            <th>Altura (m)</th>
+                            <th>Peso (kg)</th>
+                            <th>IMC</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {personas.map((persona) => (
+                            <tr key={persona.id}>
+                                <td>{persona.nombre}</td>
+                                <td>{persona.apellido}</td>
+                                <td>{persona.edad}</td>
+                                <td>{persona.altura}</td>
+                                <td>{persona.peso}</td>
+                                <td>{persona.imc}</td>
+                                <td>
+                                    <button className="btn-eliminar" onClick={() => eliminarPersona(persona.id)}>
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                {personas.length === 0 && <p style={{marginTop: '10px', textAlign: 'center'}}>No hay personas registradas.</p>}
             </section>
         </div>
     );
