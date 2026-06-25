@@ -1,0 +1,32 @@
+﻿.controles {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controles button {
+    padding: 10px 15px;
+    background-color: #212529;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.controles button:hover {
+    background-color: #343a40;
+}
+
+.contenedor-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f1f3f5;
+    border-radius: 8px;
+}
