@@ -41,3 +41,27 @@ function renderizarTarjetas(datos) {
 }
 
 renderizarTarjetas(elementos);
+
+document.getElementById('btn-todos').addEventListener('click', function() {
+    renderizarTarjetas(elementos);
+});
+
+document.getElementById('btn-pares').addEventListener('click', function() {
+    const pares = [];
+    for (let i = 0; i < elementos.length; i++) {
+        if (elementos[i].id % 2 === 0) {
+            pares.push(elementos[i]);
+        }
+    }
+    renderizarTarjetas(pares);
+});
+
+document.getElementById('btn-impares').addEventListener('click', function() {
+    const impares = [];
+    for (let i = 0; i < elementos.length; i++) {
+        if (elementos[i].id % 2 !== 0) {
+            impares.push(elementos[i]);
+        }
+    }
+    renderizarTarjetas(impares);
+});
