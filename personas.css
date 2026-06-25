@@ -1,0 +1,65 @@
+﻿.formulario-seccion, .tabla-seccion {
+    margin-bottom: 30px;
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.campo {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.campo input {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: #212529;
+}
+
+.btn-guardar {
+    background-color: #212529;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.btn-guardar:hover {
+    background-color: #343a40;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f1f3f5;
+    color: #495057;
+    font-weight: 500;
+}
